@@ -1,4 +1,7 @@
 import { Metadata } from "next";
+import { Provider } from "@/components/ui/provider";
+import { Box } from "@chakra-ui/react";
+import { ColorModeProvider } from "@/components/ui/color-mode";
 
 export const metadata: Metadata = {
   title: {
@@ -14,15 +17,31 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
-        <header style={{ backgroundColor: "lightblue", padding: "1rem" }}>
-          <p>Header</p>
-        </header>
-        {children}
-        <footer style={{ backgroundColor: "ghostwhite", padding: "1rem" }}>
-          Footer
-        </footer>
+        <Provider>
+          <ColorModeProvider forcedTheme="light">
+            <header
+              style={{
+                backgroundColor: "lightblue",
+                padding: "1rem",
+                color: "black",
+              }}
+            >
+              <Box>Header</Box>
+            </header>
+            {children}
+            <footer
+              style={{
+                backgroundColor: "ghostwhite",
+                padding: "1rem",
+                color: "black",
+              }}
+            >
+              <Box>Footer</Box>
+            </footer>
+          </ColorModeProvider>
+        </Provider>
       </body>
     </html>
   );
