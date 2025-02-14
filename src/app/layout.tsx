@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { Provider } from "@/components/ui/provider";
 import { Box } from "@chakra-ui/react";
-import { ColorModeProvider } from "@/components/ui/color-mode";
+import { ColorModeButton, ColorModeProvider } from "@/components/ui/color-mode";
 
 export const metadata: Metadata = {
   title: {
@@ -23,12 +23,15 @@ export default function RootLayout({
           <ColorModeProvider forcedTheme="light">
             <header
               style={{
+                display: "flex",
+                justifyContent: "space-between",
                 backgroundColor: "lightblue",
                 padding: "1rem",
                 color: "black",
               }}
             >
               <Box>Header</Box>
+              <ColorModeButton />
             </header>
             {children}
             <footer

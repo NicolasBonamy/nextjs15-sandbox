@@ -27,8 +27,8 @@ export default function AuthLayout({
             //className={isActive ? "font-bold mr-4" : "text-blue-500 mr-4"}
             style={
               isActive
-                ? { color: "lightblue", padding: "4" }
-                : { color: "white", padding: "4" }
+                ? { color: "blue", padding: "4" }
+                : { color: "lightgrey", padding: "4" }
             }
           >
             {link.name}
