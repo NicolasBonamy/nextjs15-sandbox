@@ -24,7 +24,6 @@ export default function AuthLayout({
           <Link
             href={link.href}
             key={link.name}
-            //className={isActive ? "font-bold mr-4" : "text-blue-500 mr-4"}
             style={
               isActive
                 ? { color: "blue", padding: "4" }
