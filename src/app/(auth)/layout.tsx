@@ -1,5 +1,6 @@
 "use client";
 
+import { Box } from "@chakra-ui/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -18,7 +19,9 @@ export default function AuthLayout({
   return (
     <div>
       {navLinks.map((link) => {
-        const isActive = pathname.startsWith(link.href);
+        const isActive =
+          pathname === link.href ||
+          (pathname.startsWith(link.href) && link.href !== "/");
 
         return (
           <Link
@@ -26,14 +29,18 @@ export default function AuthLayout({
             key={link.name}
             style={
               isActive
-                ? { color: "blue", padding: "4" }
-                : { color: "lightgrey", padding: "4" }
+                ? { color: "blue", paddingRight: "1rem" }
+                : {
+                    color: "lightgrey",
+                    paddingRight: "1rem",
+                  }
             }
           >
             {link.name}
           </Link>
         );
       })}
+
       {children}
     </div>
   );
